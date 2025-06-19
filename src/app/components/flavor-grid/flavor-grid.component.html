@@ -1,0 +1,9 @@
+<div class="section">
+  <app-section-header icon="✨" title="Flavor Essence Grid"></app-section-header>
+  <app-item-grid
+    [items]="flavors"
+    [selectedKeys]="selectedFlavors"
+    (selectedKeysChange)="handleSelectedKeysChange($event)"
+    [columns]="4">
+  </app-item-grid>
+</div>

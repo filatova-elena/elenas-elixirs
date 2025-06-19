@@ -1,0 +1,48 @@
+.preview-container {
+  background: linear-gradient(135deg, rgba(60, 30, 80, 0.8), rgba(40, 20, 60, 0.8));
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.preview-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.preview-glass {
+  font-size: 50px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+  to { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 40px rgba(186, 85, 211, 0.4); }
+}
+
+.preview-text {
+  font-size: 18px;
+  color: #b19cd9;
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+  line-height: 1.4;
+}

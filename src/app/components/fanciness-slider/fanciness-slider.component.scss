@@ -1,0 +1,42 @@
+.fanciness-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.fanciness-slider {
+  width: 300px;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(186, 85, 211, 0.3), rgba(255, 215, 0, 0.3));
+  border-radius: 10px;
+  outline: none;
+  position: relative;
+}
+
+.fanciness-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(135deg, #ffd700, #ff69b4);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  transition: all 0.3s ease;
+}
+
+.fanciness-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.fanciness-emoji {
+  font-size: 24px;
+}
+
+.fanciness-text {
+  text-align: center;
+  color: #b19cd9;
+  font-size: 16px;
+}

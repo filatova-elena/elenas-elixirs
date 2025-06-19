@@ -1,0 +1,18 @@
+<div class="section">
+  <app-section-header icon="🎩" title="Fanciness Level"></app-section-header>
+  <div class="fanciness-container">
+    <div class="fanciness-emoji">🪵</div>
+    <input
+      type="range"
+      class="fanciness-slider"
+      min="1"
+      max="10"
+      [value]="fanciness"
+      (input)="onFancinessChange($event)"
+    />
+    <div class="fanciness-emoji">👑</div>
+  </div>
+  <div class="fanciness-text">
+    <span>{{ fancinessText }}</span>
+  </div>
+</div>

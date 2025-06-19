@@ -1,0 +1,11 @@
+<div class="item-grid" [style.gridTemplateColumns]="'repeat(' + columns + ', 1fr)'">
+  <div
+    *ngFor="let item of items"
+    class="item-grid-entry"
+    [class.selected]="selectedKeys.includes(item.key)"
+    (click)="toggleItem(item.key)"
+  >
+    <div class="item-emoji">{{ item.emoji }}</div>
+    <div class="item-name">{{ item.name }}</div>
+  </div>
+</div>

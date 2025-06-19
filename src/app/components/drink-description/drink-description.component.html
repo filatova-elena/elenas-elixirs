@@ -1,0 +1,21 @@
+<div class="section">
+  <app-section-header icon="🎙️" title="Tell me more..."></app-section-header>
+  <div class="voice-container">
+    <button
+      class="voice-btn"
+      [ngClass]="{ active: isListening }"
+      (click)="toggleVoice()"
+      type="button"
+      aria-label="Toggle voice input"
+    >
+      🎙️
+    </button>
+    <input
+      type="text"
+      class="voice-input"
+      [placeholder]="placeholder"
+      [(ngModel)]="description"
+      (input)="onDescriptionChange()"
+    />
+  </div>
+</div>

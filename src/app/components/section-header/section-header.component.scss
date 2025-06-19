@@ -1,0 +1,26 @@
+@import 'colors';
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  color: $color-gold;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  text-align: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.section-header-icon {
+  font-size: 22px;
+  margin-right: 5px;
+  filter: drop-shadow(0 0 4px $color-gold-shadow);
+}
+
+.section-header-title {
+  font-weight: 600;
+  text-shadow: 0 0 8px $color-purple-shadow;
+}

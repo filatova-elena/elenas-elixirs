@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Bottle body -->
+  <path d="M10 14 L10 26 Q10 28 12 28 L20 28 Q22 28 22 26 L22 14 Z" fill="#8B45C1" stroke="#5D2E73" stroke-width="0.5"/>
+  
+  <!-- Bottle neck -->
+  <rect x="13" y="8" width="6" height="6" fill="#8B45C1" stroke="#5D2E73" stroke-width="0.5"/>
+  
+  <!-- Cork/stopper -->
+  <rect x="12" y="6" width="8" height="3" rx="1" fill="#4A4A4A" stroke="#333" stroke-width="0.5"/>
+  
+  <!-- Elixir liquid -->
+  <path d="M11 15 L11 25 Q11 27 13 27 L19 27 Q21 27 21 25 L21 15 Z" fill="#B565D8" opacity="0.9"/>
+  
+  <!-- Bubble/sparkle effects -->
+  <circle cx="14" cy="18" r="0.8" fill="#E6B3FF" opacity="0.7"/>
+  <circle cx="18" cy="21" r="0.6" fill="#F0C8FF" opacity="0.8"/>
+  <circle cx="16" cy="24" r="0.5" fill="#E6B3FF" opacity="0.6"/>
+  
+  <!-- Highlight on bottle -->
+  <path d="M12 14 L12 25 Q12 26 13 26 L14 26 L14 14 Z" fill="#A855D6" opacity="0.3"/>
+</svg>

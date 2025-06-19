@@ -1,0 +1,9 @@
+<div class="section">
+  <app-section-header icon="🍾" title="Spiritual Bases"></app-section-header>
+  <app-item-grid
+    [items]="alcoholTypes"
+    [selectedKeys]="selectedAlcohols"
+    (selectedKeysChange)="handleSelectedKeysChange($event)"
+    [columns]="4">
+  </app-item-grid>
+</div>

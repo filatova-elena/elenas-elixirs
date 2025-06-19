@@ -1,0 +1,60 @@
+<!-- Mystical background particles and blinking stars -->
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="blinking-star" style="left: 5%; top: 15%;">⭐</div>
+<div class="blinking-star" style="right: 8%; top: 25%;">✨</div>
+<div class="blinking-star" style="left: 15%; top: 45%;">🌟</div>
+<div class="blinking-star" style="right: 20%; top: 55%;">⭐</div>
+<div class="blinking-star" style="left: 25%; top: 75%;">✨</div>
+<div class="blinking-star" style="right: 12%; bottom: 30%;">🌟</div>
+<div class="blinking-star" style="left: 8%; bottom: 45%;">⭐</div>
+<div class="blinking-star" style="right: 25%; bottom: 15%;">✨</div>
+<div class="blinking-star" style="left: 60%; top: 20%;">🌟</div>
+<div class="blinking-star" style="left: 75%; top: 65%;">⭐</div>
+<div class="blinking-star" style="right: 45%; top: 35%;">✨</div>
+<div class="blinking-star" style="left: 45%; bottom: 25%;">🌟</div>
+
+<div class="container">
+  <app-header></app-header>
+
+  <app-flavor-grid
+    [selectedFlavors]="selectedFlavors"
+    (selectedFlavorsChange)="onSelectedFlavorsChange($event)">
+  </app-flavor-grid>
+
+  <app-fanciness-slider
+    [fanciness]="fanciness"
+    (fancinessChange)="onFancinessChange($event)">
+  </app-fanciness-slider>
+
+  <app-alcohol-selector
+    [selectedAlcohols]="selectedAlcohols"
+    (selectedAlcoholsChange)="onSelectedAlcoholsChange($event)">
+  </app-alcohol-selector>
+
+  <app-mood-meter
+    [selectedMoods]="selectedMoods"
+    (selectedMoodsChange)="onSelectedMoodsChange($event)">
+  </app-mood-meter>
+
+  <app-drink-description
+    [description]="description"
+    (descriptionChange)="onDescriptionChange($event)">
+  </app-drink-description>
+
+  <app-cocktail-preview
+    [description]="description"
+    [selectedFlavors]="selectedFlavors"
+    [selectedAlcohols]="selectedAlcohols"
+    [selectedMoods]="selectedMoods"
+    [fanciness]="fanciness">
+  </app-cocktail-preview>
+
+  <app-generate-button
+    [loading]="isGenerating"
+    (generate)="onGenerateCocktail()">
+  </app-generate-button>
+</div>
