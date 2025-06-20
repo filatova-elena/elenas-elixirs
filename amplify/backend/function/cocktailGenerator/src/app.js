@@ -28,15 +28,15 @@ app.post('/cocktail-generator', async (req, res) => {
     // Build the OpenAI prompt
     const prompt = buildCocktailPrompt(flavors, fanciness, alcoholTypes, mood, description);
     
-    console.log('Generating cocktail with prompt:', prompt);
+    console.log('🧙‍♀️ Elena is channeling mystical energies with prompt:', prompt);
     
-    // Call OpenAI API
+    // Call OpenAI API with GPT-4.1 mini
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4.1-mini",
       messages: [
         {
           role: "system",
-          content: "You are Elena, a mystical mixologist with centuries of cocktail wisdom. Create cocktails that are both delicious and have a touch of magic. Always respond with valid JSON only."
+          content: "You are Elena, an ancient mystical mixologist with centuries of cocktail wisdom. You possess deep knowledge of flavor profiles, ingredient interactions, and proper cocktail techniques. Your recipes are both delicious and have a touch of magic. You always provide precise measurements, proper techniques, and mystical descriptions. Always respond with valid JSON only."
         },
         {
           role: "user",
@@ -44,18 +44,20 @@ app.post('/cocktail-generator', async (req, res) => {
         }
       ],
       temperature: 0.8,
-      max_tokens: 500
+      max_tokens: 1000 // Increased for more detailed responses
     });
 
     // Parse the response
     const cocktailData = JSON.parse(completion.choices[0].message.content);
     
-    // Add some mystical flair
+    // Add Elena's magical signature
     const response = {
       ...cocktailData,
       mysticalNote: generateMysticalNote(mood),
       brewedAt: new Date().toISOString(),
-      elenasSeal: "✨🍹✨"
+      elenasSeal: "✨🍹✨",
+      moonPhase: getCurrentMoonPhase(), // Add some extra mystical flair
+      energyLevel: calculateEnergyLevel(fanciness, mood)
     };
 
     res.json({
@@ -64,72 +66,133 @@ app.post('/cocktail-generator', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error generating cocktail:', error);
+    console.error('🔮 Mystical brewing error:', error);
     res.status(500).json({
       success: false,
-      error: 'Failed to brew your magical elixir',
+      error: 'The cosmic energies are misaligned - your elixir could not be brewed',
       details: error.message
     });
   }
 });
 
-// Helper function to build OpenAI prompt
+// Helper function to build the enhanced OpenAI prompt
 function buildCocktailPrompt(flavors, fanciness, alcoholTypes, mood, description) {
-  let prompt = `Create a cocktail recipe with these preferences:
-  
-Flavors: ${flavors ? flavors.join(', ') : 'surprise me'}
-Fanciness level: ${fanciness}/10
-Alcohol types: ${alcoholTypes ? alcoholTypes.join(', ') : 'any'}
-Mood: ${mood ? (Array.isArray(mood) ? mood.join(', ') : mood) : 'relaxed'}
-Description: ${description || 'something delicious'}
+  const template = `Create a mystical cocktail recipe with these preferences:
+
+Flavors (use flavors to inform the user palette): ${formatArray(flavors)}
+Fanciness level (for fancier cocktails, use more premium ingredients, for top fanciness, use rarest most unique ingredients): ${fanciness}/10
+Alcohol types (be a mind reader here, if user selected too many, you can choose which alcohols would benefit cocktail best): ${formatArray(alcoholTypes)}
+Mood (channel the users energy and vibes to create a perfect elixir): ${formatArray(mood)}
+Description (pay attention here, this is user's own voice, make sure to channel their magic): ${description || 'surprise me with your mystical wisdom'}
+
+Requirements:
+- Use proper cocktail measurements (oz, dashes, splash, etc.)
+- Include specific spirits and brands when relevant
+- Provide detailed step-by-step instructions with proper techniques
+- Match the fanciness level (${fanciness}/10 = ${getFancinessDescription(fanciness)})
+- Incorporate the mood into flavor profile and presentation
+- Use mystical, witchy language while remaining practical
+- Combine all information you have to read users energy, keep things open ended and wise, suggest a tarot card representing their current mood.
 
 Return ONLY valid JSON in this exact format:
 {
-  "name": "Cocktail Name",
-  "description": "Brief mystical description",
+  "name": "Cocktail Name (mystical/creative)",
+  "description": "2-3 sentence mystical description that captures the essence and mood",
   "ingredients": [
-    {"item": "ingredient name", "amount": "measurement"},
-    {"item": "ingredient name", "amount": "measurement"}
+    {"item": "specific ingredient name", "amount": "precise measurement"},
+    {"item": "specific ingredient name", "amount": "precise measurement"}
   ],
   "instructions": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
+    "Step 1 with specific technique (muddle, shake, stir, etc.)",
+    "Step 2 with timing and method details",
+    "Step 3 with presentation notes",
+    "Final garnish and serving instructions"
   ],
-  "glassware": "type of glass",
-  "garnish": "garnish description",
+  "glassware": "specific glass type (coupe, rocks, highball, etc.)",
+  "garnish": "detailed garnish with preparation instructions",
   "difficulty": "Easy/Medium/Hard",
-  "prepTime": "X minutes"
+  "prepTime": "X minutes",
+  "servingSize": "1 cocktail",
+  "alcoholContent": "Medium/Strong/Light",
+  "flavorProfile": ["primary", "secondary", "tertiary"],
+  "techniques": ["shaking", "muddling", "etc"],
+  "mysticalProperties": "Brief note about the cocktail's magical effects",
+  "tarotCard": "card name",
+  "tarotReading": "Explain how the tarot card fits them."
 }`;
 
-  return prompt;
+  return template;
 }
 
-// Generate mystical notes based on mood
+// Helper function to format arrays for prompt
+function formatArray(arr) {
+  if (!arr || arr.length === 0) return 'surprise me';
+  if (Array.isArray(arr)) return arr.join(', ');
+  return arr.toString();
+}
+
+// Helper function to get fanciness description
+function getFancinessDescription(fanciness) {
+  if (fanciness <= 3) return 'simple and approachable';
+  if (fanciness <= 6) return 'moderately sophisticated';
+  if (fanciness <= 8) return 'sophisticated but not overly complex';
+  return 'extremely fancy with rare, premium ingredients';
+}
+
+// Enhanced mystical note generation based on mood
 function generateMysticalNote(mood) {
   const notes = {
-    'transcendent': '🌌 A cosmic elixir that elevates the spirit beyond earthly bounds',
-    'mysterious': '🌙 A shadowy potion shrouded in ancient secrets and moonlight magic',
-    'energetic': '⚡ An electrifying brew that sparks lightning in your veins',
-    'contemplative': '🔮 A wisdom-infused draught for deep thoughts and inner reflection',
-    'passionate': '🔥 A fiery concoction that ignites the flames of desire',
-    'serene': '🕊️ A peaceful elixir that brings harmony to mind, body, and soul'
+    'transcendent': '🌌 A cosmic elixir that elevates the spirit beyond earthly bounds, opening portals to higher consciousness',
+    'mysterious': '🌙 A shadowy potion shrouded in ancient secrets, whispered by moonlight and midnight magic',
+    'energetic': '⚡ An electrifying brew that sparks lightning in your veins and ignites the fires of ambition',
+    'contemplative': '🔮 A wisdom-infused draught for deep thoughts and inner reflection, revealing hidden truths',
+    'passionate': '🔥 A fiery concoction that ignites the flames of desire and awakens the dormant heart',
+    'serene': '🕊️ A peaceful elixir that brings harmony to mind, body, and soul, like a gentle breeze through enchanted gardens'
   };
   
   // Handle mood as array or string
   if (Array.isArray(mood) && mood.length > 0) {
-    const primaryMood = mood[0];
-    return notes[primaryMood] || '🔮 A mysterious elixir with unknown powers';
+    const primaryMood = mood[0].toLowerCase();
+    return notes[primaryMood] || '🔮 A mysterious elixir with unknown powers, crafted by ancient wisdom';
   }
   
-  return notes[mood] || '🔮 A mysterious elixir with unknown powers';
+  const moodStr = (mood || '').toLowerCase();
+  return notes[moodStr] || '🔮 A mysterious elixir with unknown powers, crafted by ancient wisdom';
+}
+
+// Add some extra mystical functions
+function getCurrentMoonPhase() {
+  const phases = ['New Moon', 'Waxing Crescent', 'First Quarter', 'Waxing Gibbous', 
+                 'Full Moon', 'Waning Gibbous', 'Last Quarter', 'Waning Crescent'];
+  const currentDate = new Date();
+  const dayOfMonth = currentDate.getDate();
+  const phaseIndex = Math.floor((dayOfMonth / 30) * 8) % 8;
+  return phases[phaseIndex];
+}
+
+function calculateEnergyLevel(fanciness, mood) {
+  const baseEnergy = fanciness || 5;
+  const moodMultiplier = Array.isArray(mood) && mood.includes('energetic') ? 1.5 : 1;
+  const energy = Math.min(10, Math.floor(baseEnergy * moodMultiplier));
+  
+  if (energy <= 3) return 'Gentle';
+  if (energy <= 6) return 'Balanced';
+  if (energy <= 8) return 'Vibrant';
+  return 'Transcendent';
 }
 
 // Health check endpoint
 app.get('/cocktail-generator', (req, res) => {
   res.json({
-    message: "Elena's Cocktail Generator is brewing! 🧙‍♀️",
+    message: "Elena's Mystical Cocktail Generator is brewing with enhanced cosmic energies! 🧙‍♀️✨",
     status: "ready",
+    model: "gpt-4.1-mini",
+    capabilities: [
+      "Mystical cocktail creation",
+      "Tarot card readings", 
+      "Moon phase tracking",
+      "Energy level assessment"
+    ],
     endpoints: {
       generate: "POST /cocktail-generator"
     }

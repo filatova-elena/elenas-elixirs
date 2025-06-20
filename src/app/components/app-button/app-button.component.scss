@@ -1,7 +1,9 @@
+@import 'colors';
+
 .app-btn {
-  background: linear-gradient(135deg, #8a2be2, #da70d6);
+  background: linear-gradient(135deg, $color-purple, $color-violet);
   border: none;
-  color: white;
+  color: $color-white;
   padding: 20px 40px;
   border-radius: 25px;
   font-family: 'Cinzel', serif;
@@ -12,31 +14,46 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4);
+  box-shadow: 0 10px 25px $color-purple-shadow-40;
   outline: none;
-}
 
-.app-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, $color-white-overlay-20, transparent);
+    transition: left 0.5s ease;
+  }
 
-.app-btn:hover::before {
-  left: 100%;
-}
+  &:hover::before {
+    left: 100%;
+  }
 
-.app-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(138, 43, 226, 0.6);
-}
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px $color-purple-shadow-60;
+  }
 
-.app-btn[disabled] {
-  opacity: 0.6;
-  cursor: not-allowed;
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .btn-content, .btn-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-icon, .loading-icon {
+    font-size: 1.2em;
+  }
+
+  .btn-text {
+    white-space: nowrap;
+  }
 }
