@@ -69,7 +69,12 @@ amplifytools.xcconfig
 .env.production
 
 # AWS Amplify
+.amplifyrc
+amplify/.config/local-*
+amplify/backend/awscloudformation
 amplify/backend/function/*/src/.env
+amplify/cli.json
+amplify/team-provider-info.json
 aws-exports.js
 
 # API keys and secrets
