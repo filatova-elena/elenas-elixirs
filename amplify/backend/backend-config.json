@@ -1,1 +1,86 @@
-{}
+{
+  "api": {
+    "cocktailGenerator": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "cocktailGenerator"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "previewGenerator"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "cocktailGenerator": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "previewGenerator": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_cocktailGenerator_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cocktailGenerator"
+        }
+      ]
+    },
+    "AMPLIFY_function_cocktailGenerator_openaiApiKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cocktailGenerator"
+        }
+      ]
+    },
+    "AMPLIFY_function_cocktailGenerator_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cocktailGenerator"
+        }
+      ]
+    },
+    "AMPLIFY_function_previewGenerator_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "previewGenerator"
+        }
+      ]
+    },
+    "AMPLIFY_function_previewGenerator_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "previewGenerator"
+        }
+      ]
+    }
+  }
+}

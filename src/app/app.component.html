@@ -20,41 +20,5 @@
 <div class="container">
   <app-header></app-header>
 
-  <app-flavor-grid
-    [selectedFlavors]="selectedFlavors"
-    (selectedFlavorsChange)="onSelectedFlavorsChange($event)">
-  </app-flavor-grid>
-
-  <app-fanciness-slider
-    [fanciness]="fanciness"
-    (fancinessChange)="onFancinessChange($event)">
-  </app-fanciness-slider>
-
-  <app-alcohol-selector
-    [selectedAlcohols]="selectedAlcohols"
-    (selectedAlcoholsChange)="onSelectedAlcoholsChange($event)">
-  </app-alcohol-selector>
-
-  <app-mood-meter
-    [selectedMoods]="selectedMoods"
-    (selectedMoodsChange)="onSelectedMoodsChange($event)">
-  </app-mood-meter>
-
-  <app-drink-description
-    [description]="description"
-    (descriptionChange)="onDescriptionChange($event)">
-  </app-drink-description>
-
-  <app-cocktail-preview
-    [description]="description"
-    [selectedFlavors]="selectedFlavors"
-    [selectedAlcohols]="selectedAlcohols"
-    [selectedMoods]="selectedMoods"
-    [fanciness]="fanciness">
-  </app-cocktail-preview>
-
-  <app-generate-button
-    [loading]="isGenerating"
-    (generate)="onGenerateCocktail()">
-  </app-generate-button>
+  <router-outlet></router-outlet>
 </div>

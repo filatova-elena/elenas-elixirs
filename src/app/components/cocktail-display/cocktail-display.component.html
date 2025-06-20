@@ -1,0 +1,60 @@
+<!-- src/app/cocktail-display/cocktail-display.component.html -->
+
+<div class="cocktail-card" *ngIf="cocktail">
+  <!-- Header -->
+  <div class="cocktail-header">
+    <h2 class="cocktail-title">{{ cocktail.name }} {{ cocktail.elenasSeal }}</h2>
+    <p class="cocktail-description">{{ cocktail.description }}</p>
+    
+    <div class="cocktail-meta">
+      <span class="chip difficulty" [style.background-color]="cocktail.difficultyColor">
+        {{ cocktail.difficulty }}
+      </span>
+      <span class="chip">{{ cocktail.prepTime }}</span>
+      <span class="chip">{{ cocktail.estimatedAlcoholContent }}</span>
+    </div>
+  </div>
+
+  <!-- Mystical Note -->
+  <div class="mystical-note">
+    <p>{{ cocktail.mysticalNote }}</p>
+  </div>
+
+  <!-- Ingredients Section -->
+  <div class="ingredients-section">
+    <h3>🧪 Magical Ingredients</h3>
+    <div class="ingredients-grid">
+      <div 
+        *ngFor="let ingredient of cocktail.ingredients; index as i" 
+        class="ingredient-item">
+        <span class="ingredient-amount">{{ ingredient.amount }}</span>
+        <span class="ingredient-name">{{ ingredient.item }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instructions Section -->
+  <div class="instructions-section">
+    <h3>🔮 Brewing Instructions</h3>
+    <ol class="instruction-list">
+      <li *ngFor="let instruction of cocktail.instructions">
+        {{ instruction }}
+      </li>
+    </ol>
+  </div>
+
+  <!-- Serving Info -->
+  <div class="serving-info">
+    <div class="serving-detail">
+      <strong>🥃 Glassware:</strong> {{ cocktail.glassware }}
+    </div>
+    <div class="serving-detail">
+      <strong>🌿 Garnish:</strong> {{ cocktail.garnish }}
+    </div>
+  </div>
+
+  <!-- Brew Time -->
+  <div class="brew-time">
+    <small>✨ Brewed at {{ cocktail.formattedBrewTime }}</small>
+  </div>
+</div>

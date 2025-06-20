@@ -1,0 +1,16 @@
+<button
+  class="app-btn"
+  [class]="variant"
+  [disabled]="loading || disabled"
+  (click)="handleClick()"
+  [type]="type"
+>
+  <span *ngIf="!loading" class="btn-content">
+    <span *ngIf="icon" class="btn-icon">{{ icon }}</span>
+    <span class="btn-text">{{ text }}</span>
+  </span>
+  <span *ngIf="loading" class="btn-loading">
+    <span class="loading-icon">{{ loadingIcon }}</span>
+    <span class="btn-text">{{ loadingText }}</span>
+  </span>
+</button>

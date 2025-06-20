@@ -62,3 +62,16 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# AWS Amplify
+amplify/backend/function/*/src/.env
+aws-exports.js
+
+# API keys and secrets
+**/src/.env
+**/.env

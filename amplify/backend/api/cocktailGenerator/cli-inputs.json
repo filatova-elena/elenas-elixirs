@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/cocktail-generator": {
+      "name": "/cocktail-generator",
+      "lambdaFunction": "cocktailGenerator",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/preview-generator": {
+      "name": "/preview-generator",
+      "lambdaFunction": "previewGenerator",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

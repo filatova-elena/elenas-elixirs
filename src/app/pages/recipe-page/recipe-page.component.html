@@ -1,0 +1,12 @@
+<div class="empty-state" *ngIf="!hasGeneratedCocktail()">
+  <p>Generate a cocktail to see the details here!</p>
+</div>
+<app-cocktail-display *ngIf="hasGeneratedCocktail()" [cocktail]="generatedCocktail">
+</app-cocktail-display>
+
+<app-button
+  text="Create Another Elixir"
+  icon="✨"
+  variant="primary"
+  (action)="createAnotherElixir()">
+</app-button>

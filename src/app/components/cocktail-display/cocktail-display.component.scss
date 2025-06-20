@@ -1,0 +1,239 @@
+// src/app/cocktail-display/cocktail-display.component.scss
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.cocktail-header {
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 24px 24px 16px;
+  text-align: center;;
+  
+  .cocktail-title {
+    // Order is important here, as it affects the text gradient
+    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+  }
+  
+  .cocktail-description {
+    color: #b8860b;
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.4;
+    margin: 0 0 16px 0;
+  }
+  
+  .cocktail-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    
+    .chip {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      
+      &.difficulty {
+        color: white;
+      }
+    }
+  }
+}
+
+.mystical-note {
+  background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(186, 85, 211, 0.1));
+  border-left: 4px solid #ffd700;
+  padding: 16px;
+  margin: 20px;
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #dda0dd;
+  
+  p {
+    margin: 0;
+  }
+}
+
+.ingredients-section, .instructions-section {
+  margin: 24px 20px;
+  
+  h3 {
+    color: #ffd700;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  
+  .ingredient-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(255, 215, 0, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+    }
+    
+    .ingredient-amount {
+      font-weight: 700;
+      color: #4ecdc4;
+      font-size: 0.95rem;
+    }
+    
+    .ingredient-name {
+      color: #ffffff;
+      text-transform: capitalize;
+      font-size: 1rem;
+    }
+  }
+}
+
+.instruction-list {
+  counter-reset: step-counter;
+  list-style: none;
+  padding: 0;
+  
+  li {
+    counter-increment: step-counter;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #4ecdc4;
+    display: flex;
+    margin: 12px 0;
+    padding: 12px;
+    border-radius: 0 12px 12px 0;
+    position: relative;
+    line-height: 1.5;
+    
+    // Instruction number styling
+    &::before {
+      content: counter(step-counter);
+      left: -2px;
+      top: -2px;
+      background: #4ecdc4;
+      color: #2d1b69;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-right: 10px
+    }
+    
+    &:hover {
+      background: rgba(78, 205, 196, 0.1);
+    }
+  }
+}
+
+.serving-info {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px;
+  
+  .serving-detail {
+    margin: 8px 0;
+    font-size: 1rem;
+    
+    strong {
+      color: #ffd700;
+      margin-right: 8px;
+    }
+  }
+}
+
+.brew-time {
+  text-align: center;
+  padding: 12px;
+  color: #b8860b;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+  margin-top: 20px;
+}
+
+.cocktail-actions {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 16px 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 120px;
+  justify-content: center;
+  
+  &.btn-primary {
+    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+    color: #2d1b69;
+    
+    &:hover {
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.btn-secondary {
+    background: transparent;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    
+    &:hover {
+      background: rgba(255, 215, 0, 0.1);
+      border-color: #ff6b6b;
+      color: #ff6b6b;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .cocktail-card {
+    margin: 10px;
+  }
+  
+  .ingredients-grid {
+    grid-template-columns: 1fr;
+  }
+}
