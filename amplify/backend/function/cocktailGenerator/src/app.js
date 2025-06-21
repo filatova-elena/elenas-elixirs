@@ -44,7 +44,7 @@ app.post('/cocktail-generator', async (req, res) => {
         }
       ],
       temperature: 0.8,
-      max_tokens: 1000 // Increased for more detailed responses
+      max_tokens: 500 // Keep cocktail recipes concise but detailed
     });
 
     // Parse the response
