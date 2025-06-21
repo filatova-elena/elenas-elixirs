@@ -53,7 +53,6 @@ app.post('/cocktail-generator', async (req, res) => {
     // Add Elena's magical signature
     const response = {
       ...cocktailData,
-      mysticalNote: generateMysticalNote(mood),
       brewedAt: new Date().toISOString(),
       elenasSeal: "✨🍹✨",
       moonPhase: getCurrentMoonPhase(), // Add some extra mystical flair
@@ -137,27 +136,6 @@ function getFancinessDescription(fanciness) {
   if (fanciness <= 6) return 'moderately sophisticated';
   if (fanciness <= 8) return 'sophisticated but not overly complex';
   return 'extremely fancy with rare, premium ingredients';
-}
-
-// Enhanced mystical note generation based on mood
-function generateMysticalNote(mood) {
-  const notes = {
-    'transcendent': '🌌 A cosmic elixir that elevates the spirit beyond earthly bounds, opening portals to higher consciousness',
-    'mysterious': '🌙 A shadowy potion shrouded in ancient secrets, whispered by moonlight and midnight magic',
-    'energetic': '⚡ An electrifying brew that sparks lightning in your veins and ignites the fires of ambition',
-    'contemplative': '🔮 A wisdom-infused draught for deep thoughts and inner reflection, revealing hidden truths',
-    'passionate': '🔥 A fiery concoction that ignites the flames of desire and awakens the dormant heart',
-    'serene': '🕊️ A peaceful elixir that brings harmony to mind, body, and soul, like a gentle breeze through enchanted gardens'
-  };
-  
-  // Handle mood as array or string
-  if (Array.isArray(mood) && mood.length > 0) {
-    const primaryMood = mood[0].toLowerCase();
-    return notes[primaryMood] || '🔮 A mysterious elixir with unknown powers, crafted by ancient wisdom';
-  }
-  
-  const moodStr = (mood || '').toLowerCase();
-  return notes[moodStr] || '🔮 A mysterious elixir with unknown powers, crafted by ancient wisdom';
 }
 
 // Add some extra mystical functions
