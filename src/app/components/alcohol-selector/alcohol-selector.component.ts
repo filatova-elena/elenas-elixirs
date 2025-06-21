@@ -20,7 +20,8 @@ export class AlcoholSelectorComponent {
     { key: 'tequila', emoji: '🌵', name: 'Tequila' },
     { key: 'rum', emoji: '🍹', name: 'Rum' },
     { key: 'vodka', emoji: '❄️', name: 'Vodka' },
-    { key: 'sake', emoji: '🍶', name: 'Sake' }
+    { key: 'sake', emoji: '🍶', name: 'Sake' },
+    { key: 'tea', emoji: '🍶', name: 'Tea (0% ABV)' }
   ];
 
   handleSelectedKeysChange(keys: string[]) {
