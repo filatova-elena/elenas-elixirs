@@ -78,11 +78,11 @@ app.post('/cocktail-generator', async (req, res) => {
 function buildCocktailPrompt(flavors, fanciness, alcoholTypes, mood, description) {
   const template = `Create a mystical cocktail recipe with these preferences:
 
-Flavors (use flavors to inform the user palette): ${formatArray(flavors)}
-Fanciness level (for fancier cocktails, use more premium ingredients, for top fanciness, use rarest most unique ingredients): ${fanciness}/10
-Alcohol types (be a mind reader here, if user selected too many, you can choose which alcohols would benefit cocktail best): ${formatArray(alcoholTypes)}
-Mood (channel the users energy and vibes to create a perfect elixir): ${formatArray(mood)}
-Description (pay attention here, this is user's own voice, make sure to channel their magic): ${description || 'surprise me with your mystical wisdom'}
+Flavors: ${formatArray(flavors)}
+Fanciness level: ${fanciness}/10
+Alcohol types: ${formatArray(alcoholTypes)}
+Mood: ${formatArray(mood)}
+Description: ${description || 'surprise me with your mystical wisdom'}
 
 Requirements:
 - Use proper cocktail measurements (oz, dashes, splash, etc.)
@@ -91,7 +91,8 @@ Requirements:
 - Match the fanciness level (${fanciness}/10 = ${getFancinessDescription(fanciness)})
 - Incorporate the mood into flavor profile and presentation
 - Use mystical, witchy language while remaining practical
-- Combine all information you have to read users energy, keep things open ended and wise, suggest a tarot card representing their current mood.
+- Pay attention to description as that's user's own voice, we need to vibe with it
+- [IMPORTANT] If user selected tea, cocktail is non-alcoholic, only use non-alcoholic ingredients (no bitters, liueurs, etc.)
 
 Return ONLY valid JSON in this exact format:
 {
@@ -113,11 +114,7 @@ Return ONLY valid JSON in this exact format:
   "prepTime": "X minutes",
   "servingSize": "1 cocktail",
   "alcoholContent": "Medium/Strong/Light",
-  "flavorProfile": ["primary", "secondary", "tertiary"],
-  "techniques": ["shaking", "muddling", "etc"],
   "mysticalProperties": "Brief note about the cocktail's magical effects",
-  "tarotCard": "card name",
-  "tarotReading": "Explain how the tarot card fits them."
 }`;
 
   return template;
@@ -167,7 +164,6 @@ app.get('/cocktail-generator', (req, res) => {
     model: "gpt-4.1-mini",
     capabilities: [
       "Mystical cocktail creation",
-      "Tarot card readings", 
       "Moon phase tracking",
       "Energy level assessment"
     ],
