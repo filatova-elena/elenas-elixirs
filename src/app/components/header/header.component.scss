@@ -1,3 +1,5 @@
+@import 'colors';
+
 .header {
   text-align: center;
   padding: 20px 0 5px;
@@ -24,15 +26,15 @@
   font-family: 'Dancing Script', cursive;
   font-size: 60px;
   font-weight: 700;
-  color: #d8bfd8;
+  color: $color-bg-light;
   margin-bottom: 0px;
-  text-shadow: 0 0 30px rgba(216, 191, 216, 0.5);
+  text-shadow: 0 0 30px $color-thistle-shadow-50;
   letter-spacing: 1px;
 }
 
 .app-subtitle {
   font-size: 20px;
-  color: #b19cd9;
+  color: $color-lavender;
   font-style: italic;
   margin-bottom: 30px;
 }

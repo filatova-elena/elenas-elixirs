@@ -1,3 +1,5 @@
+@import 'colors';
+
 .voice-container {
   display: flex;
   align-items: center;
@@ -6,33 +8,34 @@
 }
 
 .voice-btn {
-  background: linear-gradient(135deg, #8a2be2, #da70d6);
+  background: linear-gradient(135deg, $color-purple, $color-violet);
   border: none;
-  color: white;
+  color: $color-white;
   padding: 15px;
   border-radius: 50%;
   font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+  box-shadow: 0 5px 15px $color-purple-shadow-40;
 }
+
 .voice-btn.active,
 .voice-btn:active {
-  background: linear-gradient(135deg, #ff1493, #ffd700);
+  background: linear-gradient(135deg, $color-magenta, $color-gold);
 }
 
 .voice-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(138, 43, 226, 0.6);
+  box-shadow: 0 8px 20px $color-purple-shadow-60;
 }
 
 .voice-input {
   flex: 1;
-  background: rgba(30, 20, 50, 0.8);
-  border: 2px solid rgba(186, 85, 211, 0.3);
+  background: $color-bg-overlay-dark-80;
+  border: 2px solid $color-purple-border;
   border-radius: 15px;
   padding: 15px 20px;
-  color: #e8d5c4;
+  color: $color-tan;
   font-family: 'Crimson Text', serif;
   font-size: 16px;
   outline: none;
@@ -40,11 +43,11 @@
 }
 
 .voice-input:focus {
-  border-color: rgba(255, 215, 0, 0.6);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  border-color: $color-gold-60;
+  box-shadow: 0 0 15px $color-gold-30;
 }
 
 .voice-input::placeholder {
-  color: #8a7ca8;
+  color: $color-slate-blue;
   font-style: italic;
 }

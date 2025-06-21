@@ -1,18 +1,20 @@
 // src/app/cocktail-display/cocktail-display.component.scss
 
+@import 'colors';
+
 @keyframes shimmer {
   0%, 100% { opacity: 0.8; }
   50% { opacity: 1; }
 }
 
 .cocktail-header {
-  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  border-bottom: 1px solid $color-gold-20;
   padding: 24px 24px 16px;
   text-align: center;;
   
   .cocktail-title {
     // Order is important here, as it affects the text gradient
-    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+    background: linear-gradient(45deg, $color-gold, $color-coral);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -22,7 +24,7 @@
   }
   
   .cocktail-description {
-    color: #b8860b;
+    color: $color-dark-goldenrod;
     font-size: 1.1rem;
     font-style: italic;
     line-height: 1.4;
@@ -35,30 +37,30 @@
     flex-wrap: wrap;
     
     .chip {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
+      background: $color-white-overlay-10;
+      color: $color-white;
       padding: 6px 12px;
       border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 600;
-      border: 1px solid rgba(255, 215, 0, 0.3);
+      border: 1px solid $color-gold-30;
       
       &.difficulty {
-        color: white;
+        color: $color-white;
       }
     }
   }
 }
 
 .mystical-note {
-  background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(186, 85, 211, 0.1));
-  border-left: 4px solid #ffd700;
+  background: linear-gradient(45deg, $color-gold-20, $color-purple-overlay-20);
+  border-left: 4px solid $color-gold;
   padding: 16px;
   margin: 20px;
   border-radius: 0 10px 10px 0;
   font-style: italic;
   font-size: 1.05rem;
-  color: #dda0dd;
+  color: $color-plum;
   
   p {
     margin: 0;
@@ -69,7 +71,7 @@
   margin: 24px 20px;
   
   h3 {
-    color: #ffd700;
+    color: $color-gold;
     font-size: 1.3rem;
     margin-bottom: 16px;
     display: flex;
@@ -84,8 +86,8 @@
   gap: 12px;
   
   .ingredient-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    background: $color-white-overlay-05;
+    border: 1px solid $color-gold-20;
     border-radius: 12px;
     padding: 12px 16px;
     display: flex;
@@ -94,19 +96,19 @@
     transition: all 0.3s ease;
     
     &:hover {
-      background: rgba(255, 215, 0, 0.1);
+      background: $color-gold-20;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 4px 12px $color-gold-20;
     }
     
     .ingredient-amount {
       font-weight: 700;
-      color: #4ecdc4;
+      color: $color-teal;
       font-size: 0.95rem;
     }
     
     .ingredient-name {
-      color: #ffffff;
+      color: $color-white;
       text-transform: capitalize;
       font-size: 1rem;
     }
@@ -120,8 +122,8 @@
   
   li {
     counter-increment: step-counter;
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 4px solid #4ecdc4;
+    background: $color-white-overlay-05;
+    border-left: 4px solid $color-teal;
     display: flex;
     margin: 12px 0;
     padding: 12px;
@@ -134,8 +136,8 @@
       content: counter(step-counter);
       left: -2px;
       top: -2px;
-      background: #4ecdc4;
-      color: #2d1b69;
+      background: $color-teal;
+      color: $color-dark-blue;
       min-width: 24px;
       width: 24px;
       height: 24px;
@@ -149,13 +151,13 @@
     }
     
     &:hover {
-      background: rgba(78, 205, 196, 0.1);
+      background: $color-teal-overlay-10;
     }
   }
 }
 
 .serving-info {
-  background: rgba(255, 255, 255, 0.05);
+  background: $color-white-overlay-05;
   border-radius: 12px;
   padding: 16px;
   margin: 20px;
@@ -165,7 +167,7 @@
     font-size: 1rem;
     
     strong {
-      color: #ffd700;
+      color: $color-gold;
       margin-right: 8px;
     }
   }
@@ -174,14 +176,14 @@
 .brew-time {
   text-align: center;
   padding: 12px;
-  color: #b8860b;
+  color: $color-dark-goldenrod;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 215, 0, 0.2);
+  border-top: 1px solid $color-gold-20;
   margin-top: 20px;
 }
 
 .cocktail-actions {
-  background: rgba(0, 0, 0, 0.2);
+  background: $color-black-overlay-20;
   padding: 16px 24px;
   display: flex;
   gap: 12px;
@@ -205,24 +207,24 @@
   justify-content: center;
   
   &.btn-primary {
-    background: linear-gradient(45deg, #ffd700, #ff6b6b);
-    color: #2d1b69;
+    background: linear-gradient(45deg, $color-gold, $color-coral);
+    color: $color-dark-blue;
     
     &:hover {
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+      box-shadow: 0 6px 20px $color-gold-40;
       transform: translateY(-2px);
     }
   }
   
   &.btn-secondary {
     background: transparent;
-    color: #ffd700;
-    border: 2px solid #ffd700;
+    color: $color-gold;
+    border: 2px solid $color-gold;
     
     &:hover {
-      background: rgba(255, 215, 0, 0.1);
-      border-color: #ff6b6b;
-      color: #ff6b6b;
+      background: $color-gold-20;
+      border-color: $color-coral;
+      color: $color-coral;
     }
   }
 }

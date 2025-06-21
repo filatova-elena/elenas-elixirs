@@ -1,3 +1,5 @@
+@import 'colors';
+
 .item-grid {
   display: grid;
   gap: 15px;
@@ -9,8 +11,8 @@
   flex-direction: column;
   align-items: center;
   padding: 15px 8px;
-  background: rgba(40, 30, 60, 0.8);
-  border: 2px solid rgba(186, 85, 211, 0.3);
+  background: $color-bg-overlay-medium-80;
+  border: 2px solid $color-purple-border;
   border-radius: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -18,15 +20,15 @@
 }
 
 .item-grid-entry:hover {
-  border-color: rgba(255, 215, 0, 0.6);
-  background: rgba(50, 35, 70, 0.9);
+  border-color: $color-gold-60;
+  background: $color-bg-overlay-light-90;
   transform: translateY(-3px);
 }
 
 .item-grid-entry.selected {
-  border-color: #ffd700;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(186, 85, 211, 0.2));
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  border-color: $color-gold;
+  background: linear-gradient(135deg, $color-gold-20, $color-purple-overlay-20);
+  box-shadow: 0 0 15px $color-gold-40;
 }
 
 .item-emoji {
@@ -36,6 +38,6 @@
 
 .item-name {
   font-size: 14px;
-  color: #b19cd9;
+  color: $color-lavender;
   text-align: center;
 }

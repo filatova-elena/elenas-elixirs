@@ -1,8 +1,24 @@
+// ============================================================================
+// MYSTICAL COCKTAIL COLORS PALETTE
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// BASE BACKGROUND COLORS
+// ----------------------------------------------------------------------------
 $color-bg-darkest: #0a0a1a;
 $color-bg-dark: #1a0f2e;
 $color-bg-mid: #2d1b4e;
 $color-bg-light: #d8bfd8;
 
+// Dark overlay backgrounds (converted from rgba)
+$color-bg-overlay-dark: #1e1432;      // rgba(30, 20, 50, 1) equivalent
+$color-bg-overlay-medium: #281e3c;     // rgba(40, 30, 60, 1) equivalent  
+$color-bg-overlay-light: #322346;     // rgba(50, 35, 70, 1) equivalent
+$color-bg-container: #170c2b;         // rgba(23, 12, 43, 1) equivalent
+
+// ----------------------------------------------------------------------------
+// MAIN THEME COLORS
+// ----------------------------------------------------------------------------
 $color-gold: #ffd700;
 $color-purple: #8a2be2;
 $color-pink: #ff69b4;
@@ -10,16 +26,77 @@ $color-lavender: #b19cd9;
 $color-violet: #da70d6;
 $color-deep-purple: #4b0082;
 $color-magenta: #ff1493;
-$color-tan: #e8d5c4;
-$color-cream: #f0e6d2;
 $color-white: #ffffff;
 
-$color-purple-border: rgba(186, 85, 211, 0.3);
-$color-yellow-selected: #ffd700;
-$color-gold-shadow: #ffd70088;
-$color-purple-shadow: #b19cd966;
+// ----------------------------------------------------------------------------
+// ACCENT COLORS
+// ----------------------------------------------------------------------------
+$color-coral: #ff6b6b;
+$color-dark-goldenrod: #b8860b;
+$color-plum: #dda0dd;
+$color-teal: #4ecdc4;
+$color-dark-blue: #2d1b69;
+$color-slate-blue: #8a7ca8;
+$color-tan: #e8d5c4;
+$color-cream: #f0e6d2;
 
-// New shadow colors (converted from rgba)
-$color-purple-shadow-40: #8a2be266;
-$color-purple-shadow-60: #8a2be299;
-$color-white-overlay-20: #ffffff33;
+// ----------------------------------------------------------------------------
+// GOLD OPACITY VARIATIONS
+// ----------------------------------------------------------------------------
+$color-gold-80: #ffd700cc;
+$color-gold-60: #ffd70099;
+$color-gold-40: #ffd70066;
+$color-gold-30: #ffd7004d;
+$color-gold-20: #ffd70033;
+
+// ----------------------------------------------------------------------------
+// PURPLE OPACITY VARIATIONS (Medium Orchid Base: #ba55d3)
+// ----------------------------------------------------------------------------
+$color-purple-border: #ba55d34d;      // 30% opacity - most commonly used
+$color-purple-overlay-50: #ba55d380;  // 50% opacity
+$color-purple-overlay-20: #ba55d333;  // 20% opacity
+
+// ----------------------------------------------------------------------------
+// PURPLE OPACITY VARIATIONS (Blue Violet Base: #8a2be2)
+// ----------------------------------------------------------------------------
+$color-purple-shadow: #b19cd966;      // Existing - keep for compatibility
+$color-purple-shadow-60: #8a2be299;   // 60% opacity
+$color-purple-shadow-40: #8a2be266;   // 40% opacity  
+$color-purple-shadow-15: #8a2be226;   // 15% opacity
+
+// ----------------------------------------------------------------------------
+// WHITE OPACITY VARIATIONS
+// ----------------------------------------------------------------------------
+$color-white-overlay-20: #ffffff33;   // Existing - keep for compatibility
+$color-white-overlay-10: #ffffff1a;   // 10% opacity
+$color-white-overlay-05: #ffffff0d;   // 5% opacity
+
+// ----------------------------------------------------------------------------
+// BLACK OPACITY VARIATIONS  
+// ----------------------------------------------------------------------------
+$color-black-overlay-60: #00000099;   // 60% opacity
+$color-black-overlay-20: #00000033;   // 20% opacity
+
+// ----------------------------------------------------------------------------
+// BACKGROUND OVERLAY VARIATIONS (with opacity)
+// ----------------------------------------------------------------------------
+$color-bg-overlay-dark-95: #170c2bf2;   // Main container background
+$color-bg-overlay-dark-80: #1e1432cc;   // Input backgrounds
+$color-bg-overlay-medium-80: #281e3ccc; // Card backgrounds
+$color-bg-overlay-light-90: #322346e6;  // Hover states
+
+// ----------------------------------------------------------------------------
+// SPECIAL EFFECT COLORS
+// ----------------------------------------------------------------------------
+$color-teal-overlay-10: #4ecdc41a;     // Teal with 10% opacity
+$color-magenta-overlay-12: #ff14931f;  // Deep pink with 12% opacity  
+$color-indigo-overlay-15: #4b008226;   // Indigo with 15% opacity
+$color-thistle-overlay-08: #d8bfd814;  // Thistle with 8% opacity
+$color-thistle-shadow-50: #d8bfd880;   // Thistle with 50% opacity
+$color-violet-overlay-70: #da70d6b3;   // Violet with 70% opacity
+
+// ----------------------------------------------------------------------------
+// LEGACY COMPATIBILITY (keeping existing variable names)
+// ----------------------------------------------------------------------------
+$color-yellow-selected: $color-gold;
+$color-gold-shadow: #ffd70088;        // Keep existing for compatibility

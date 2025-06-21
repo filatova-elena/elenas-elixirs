@@ -1,3 +1,5 @@
+@import 'colors';
+
 .fanciness-container {
   display: flex;
   align-items: center;
@@ -9,7 +11,7 @@
 .fanciness-slider {
   width: 300px;
   height: 8px;
-  background: linear-gradient(90deg, rgba(186, 85, 211, 0.3), rgba(255, 215, 0, 0.3));
+  background: linear-gradient(90deg, $color-purple-border, $color-gold-30);
   border-radius: 10px;
   outline: none;
   position: relative;
@@ -19,16 +21,16 @@
   -webkit-appearance: none;
   width: 25px;
   height: 25px;
-  background: linear-gradient(135deg, #ffd700, #ff69b4);
+  background: linear-gradient(135deg, $color-gold, $color-pink);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 15px $color-gold-60;
   transition: all 0.3s ease;
 }
 
 .fanciness-slider::-webkit-slider-thumb:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 20px $color-gold-80;
 }
 
 .fanciness-emoji {
@@ -37,6 +39,6 @@
 
 .fanciness-text {
   text-align: center;
-  color: #b19cd9;
+  color: $color-lavender;
   font-size: 16px;
 }
