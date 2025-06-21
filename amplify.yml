@@ -1,0 +1,42 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - echo "🔮 Installing dependencies..."
+            - npm ci
+            - echo "⚗️ Installing Angular CLI..."
+            - npm install -g @angular/cli@latest
+        build:
+          commands:
+            - echo "✨ Building Elena's Elixirs..."
+            - ng build --configuration=production
+            - echo "🌟 Build completed successfully!"
+        postBuild:
+          commands:
+            - echo "🚀 Deployment ready!"
+      artifacts:
+        baseDirectory: dist/elenas-elixirs/browser
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+          - .angular/cache/**/*
+    appRoot: client
+  - backend:
+      phases:
+        preBuild:
+          commands:
+            - echo "🧪 Setting up backend..."
+            - cd backend
+            - npm ci
+        build:
+          commands:
+            - echo "🔥 Building Lambda functions..."
+            - echo "✅ Backend build completed!"
+        postBuild:
+          commands:
+            - echo "🍹 Backend ready to serve!"
+      appRoot: backend
