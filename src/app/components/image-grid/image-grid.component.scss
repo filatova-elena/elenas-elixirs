@@ -1,0 +1,81 @@
+$image-size: 160px;
+
+.image-grid {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.image-grid-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 8px;
+  background: rgba(75, 0, 130, 0.2);
+  border: 2px solid rgba(147, 51, 234, 0.5);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.image-grid-entry:hover {
+  border-color: gold;
+}
+
+.image-grid-entry.selected {
+  border-color: gold;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.image-container {
+  width: $image-size;
+  height: $image-size;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.mood-image {
+  width: $image-size;
+  height: $image-size;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+}
+
+.image-grid-entry.selected .mood-image {
+  border-color: gold;
+}
+
+.image-fallback {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(147, 51, 234, 0.2);
+  border: 2px dashed rgba(147, 51, 234, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selection-indicator {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background: gold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-icon {
+  font-size: 12px;
+  color: black;
+}
+
+.image-name {
+  font-size: 14px;
+  color: #e6d7ff;
+  text-align: center;
+}

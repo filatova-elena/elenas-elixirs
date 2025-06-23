@@ -1,0 +1,33 @@
+<!-- src/app/components/image-grid/image-grid.component.html -->
+
+<div class="image-grid" [style.gridTemplateColumns]="gridColumns">
+  <div
+    *ngFor="let item of items"
+    class="image-grid-entry"
+    [class.selected]="selectedKeys.includes(item.key)"
+    (click)="toggleItem(item.key)"
+    [title]="item.description || item.name"
+  >
+    <!-- Image container -->
+    <div class="image-container">
+      <img 
+        [src]="item.image" 
+        [alt]="item.name"
+        class="mood-image"
+      />
+      
+      <!-- Fallback for broken images -->
+      <div class="image-fallback" style="display: none;">
+        <span class="fallback-icon">🖼️</span>
+      </div>
+      
+      <!-- Selection indicator -->
+      <div class="selection-indicator" *ngIf="isSelected(item.key)">
+        <span class="check-icon">✨</span>
+      </div>
+    </div>
+    
+    <!-- Item name -->
+    <div class="image-name">{{ item.name }}</div>
+  </div>
+</div>

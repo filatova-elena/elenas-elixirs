@@ -1,9 +1,10 @@
 <div class="section">
   <app-section-header icon="🌙" title="Ethereal Mood Alignment"></app-section-header>
-  <app-item-grid
+    <app-image-grid
     [items]="moods"
     [selectedKeys]="selectedMoods"
     (selectedKeysChange)="handleSelectedKeysChange($event)"
-    [columns]="3">
-  </app-item-grid>
+    [columns]="4"
+    [allowMultiple]="true">
+  </app-image-grid>
 </div>
